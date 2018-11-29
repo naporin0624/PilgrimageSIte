@@ -1,79 +1,50 @@
 <template>
-  <div>
-    <div>
-      <h2>Search and add a pin</h2>
-      <!-- <label>
-        <gmap-autocompletez @place_changed="setPlace">
-        </gmap-autocompletez>
-        <button @click="addMarker">Add</button>
-      </label> -->
-      <br />
-
-    </div>
-    <br>
-    <gmap-map></gmap-map>
+  <div class="hello">
+    <GmapMap
+      :center="{lat:10, lng:10}"
+      :zoom="7"
+      map-type-id="terrain"
+      style="width: 49vw; height: 90vh"
+    >
+      <GmapMarker
+        :key="index"
+        v-for="(m, index) in markers"
+        :position="m.position"
+        :clickable="true"
+        :draggable="true"
+        @click="center=m.position"
+      />
+    </GmapMap>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
-import {
-  gmapMap,
-  gmapMarker,
-  gmapCluster,
-  gmapInfoWindow,
-  loaded
-} from "vue2-google-maps";
 export default {
-  name: "GoogleMap",
-  components: {
-    "gmap-map": gmapMap
-  },
+  name: "HelloWorld",
   data() {
     return {
-      // default to Montreal to keep it simple
-      // change this to whatever makes sense
-      center: {
-        lat: 45.508,
-        lng: -73.587
-      },
-      markers: [],
-      places: [],
-      currentPlace: null
+      msg: "Welcome to Your Vue.js App"
     };
-  },
-
-  mounted() {
-    this.geolocate();
-  },
-
-  methods: {
-    // receives a place object via the autocomplete component
-    setPlace(place) {
-      this.currentPlace = place;
-    },
-    addMarker() {
-      if (this.currentPlace) {
-        const marker = {
-          lat: this.currentPlace.geometry.location.lat(),
-          lng: this.currentPlace.geometry.location.lng()
-        };
-        this.markers.push({
-          position: marker
-        });
-        this.places.push(this.currentPlace);
-        this.center = marker;
-        this.currentPlace = null;
-      }
-    },
-    geolocate: function() {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.center = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-      });
-    }
   }
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1,
+h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
