@@ -14,9 +14,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "google-maps-api-loader": "^1.1.1",
     "vue": "^2.5.2",
+    "vue-googlemaps": "^0.1.1",
     "vue-router": "^3.0.1",
-    "vue2-google-maps": "^0.10.3"
+    "vue2-google-maps": "^0.10.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

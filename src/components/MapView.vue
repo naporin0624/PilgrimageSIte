@@ -19,15 +19,14 @@
 /* eslint-disable */
 import blog from "./blog.vue";
 import search from "./SeachBar.vue";
-import GoogleMap from "./GoogleMap.vue";
+import map from "./GoogleMap";
 
 export default {
   name: "MainSite",
   components: {
     "blog-component": blog,
     "search-component": search,
-    "map-component": GoogleMap
+    "map-component": map
   }
 };
 </script>
-
