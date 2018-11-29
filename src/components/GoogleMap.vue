@@ -1,12 +1,14 @@
 <template>
   <div class="hello">
     <GmapMap
-      :center="{lat:10, lng:10}"
-      :zoom="7"
+      :center="{lat:position.lat, lng:position.lng}"
+      :zoom="15"
       map-type-id="terrain"
-      style="width: 49vw; height: 90vh"
+      style="width: 49vw; height: 89vh"
     >
-      <GmapMarker
+      <GmapMarker label="*" :position="{lat:position.lat, lng:position.lng}"/>
+    </GmapMap>
+    <!-- <GmapMarker
         :key="index"
         v-for="(m, index) in markers"
         :position="m.position"
@@ -14,7 +16,7 @@
         :draggable="true"
         @click="center=m.position"
       />
-    </GmapMap>
+    </GmapMap>-->
   </div>
 </template>
 
@@ -23,28 +25,8 @@
 export default {
   name: "HelloWorld",
   data() {
-    return {
-      msg: "Welcome to Your Vue.js App"
-    };
-  }
+    return {};
+  },
+  props: ["position"]
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
