@@ -97,6 +97,13 @@ export default {
     ClickCard: function(item) {
       this.$emit("position", item.position);
     }
+  },
+  props: ["blog"],
+  watch: {
+    blog() {
+      console.log("blog-catch");
+      console.log(this.blog);
+    }
   }
 };
 </script>

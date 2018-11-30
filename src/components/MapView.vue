@@ -1,6 +1,6 @@
 <template>
   <div class="MapView">
-    <search-component></search-component>
+    <search-component v-on:blog="GetBlog" v-bind:blog="blog"></search-component>
     <div class="siimple-grid">
       <div class="siimple-grid-row">
         <div class="siimple-grid-col siimple-grid-col--6 siimple-grid-col--sm-12">
@@ -25,7 +25,8 @@ export default {
   name: "MainSite",
   data() {
     return {
-      position: { lat: 35.6693863, lng: 139.6012972 }
+      position: { lat: 35.6693863, lng: 139.6012972 },
+      blog: null
     };
   },
   components: {
@@ -36,6 +37,14 @@ export default {
   methods: {
     GetPosition: function(position) {
       this.position = position;
+    },
+    GetBlog: function(blog) {
+      this.blog = blog;
+    }
+  },
+  watch: {
+    blog() {
+      console.log(this.blog);
     }
   }
 };
