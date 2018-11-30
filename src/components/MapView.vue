@@ -8,7 +8,7 @@
         </div>
 
         <div class="siimple-grid-col siimple-grid-col--6 siimple-grid-col--sm-12">
-          <blog-component v-on:position="GetPosition"></blog-component>
+          <blog-component v-on:position="GetPosition" v-bind:blog="blog"></blog-component>
         </div>
       </div>
     </div>
@@ -42,10 +42,6 @@ export default {
       this.blog = blog;
     }
   },
-  watch: {
-    blog() {
-      console.log(this.blog);
-    }
-  }
+  watch: {}
 };
 </script>

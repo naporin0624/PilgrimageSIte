@@ -29,7 +29,7 @@ export default {
   methods: {
     Search: function() {
       axios.get(this.base_url, { params: { serach: this.item } }).then(res => {
-        console.log(res);
+        // console.log(res);
         this.$emit("blog", res.data);
       });
     }
