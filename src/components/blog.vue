@@ -15,8 +15,8 @@
         </div>
         <div class="document-box">
           <div class="siimple-h4">{{item.title}}</div>
-          <p class="siimple-p">{{item.text}}</p>
-          <p class="siimple-p">場所: {{item.location}}</p>
+          <div class="siimple-p" id="text">{{item.text}}</div>
+          <div class="siimple-p" id="location">場所: {{item.location}}</div>
         </div>
       </div>
     </div>
@@ -139,12 +139,12 @@ export default {
 .image-box {
   float: left;
   width: 40%;
-  padding: 10px;
+  padding: 5px;
 }
 .document-box {
   float: none;
   width: auto;
-  padding: 10px;
+  padding: 5px;
 }
 .image-box img {
   width: 100%;
