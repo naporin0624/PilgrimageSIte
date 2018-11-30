@@ -45,3 +45,10 @@ export default {
   watch: {}
 };
 </script>
+
+<style>
+html,
+body {
+  overflow: hidden;
+}
+</style>
