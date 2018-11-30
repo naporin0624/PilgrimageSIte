@@ -23,7 +23,7 @@
 <script>
 /* eslint-disable */
 export default {
-  name: "HelloWorld",
+  name: "Map",
   data() {
     return {};
   },
