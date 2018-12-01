@@ -6,17 +6,18 @@
       map-type-id="terrain"
       style="width: 49vw; height: 88vh"
     >
-      <GmapMarker label="*" :position="{lat:position.lat, lng:position.lng}"/>
-    </GmapMap>
-    <!-- <GmapMarker
+      <!-- <GmapMarker label="*" :position="{lat:position.lat, lng:position.lng}"/>
+    </GmapMap> -->
+    <GmapMarker
+        v-for="(m, index) in locationData"
+        :label="index.toString()"
         :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
+        :position="{lat:m.position.lat, lng:m.position.lng}"
         :clickable="true"
         :draggable="true"
         @click="center=m.position"
       />
-    </GmapMap>-->
+    </GmapMap>
   </div>
 </template>
 
@@ -27,6 +28,6 @@ export default {
   data() {
     return {};
   },
-  props: ["position"]
+  props: ["position", "locationData"]
 };
 </script>
