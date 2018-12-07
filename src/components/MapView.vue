@@ -1,6 +1,6 @@
 <template>
   <div class="MapView">
-    <search-component v-on:search="searchBlog" v-bind:blog="blog"></search-component>
+    <search-component v-on:search="searchBlog" v-bind:blogData="blogData"></search-component>
     <div class="siimple-grid">
       <div class="siimple-grid-row">
         <div class="siimple-grid-col siimple-grid-col--6 siimple-grid-col--sm-12">
@@ -23,13 +23,13 @@ import map from "./GoogleMap";
 
 import axios from "axios";
 
-import loveliveBlogData from "../assets/json/lovelive.json";
+// import loveliveBlogData from "../assets/json/lovelive.json";
 
 export default {
   name: "MainSite",
   data() {
     return {
-      blogData: loveliveBlogData,
+      blogData: null,
       position: { lat: 35.6693863, lng: 139.6012972 },
       info: null
     };
@@ -49,10 +49,23 @@ export default {
         // console.log(res);
         this.$emit("search", res.data);
       });
+    },
+    setLoveLive: function() {
+      var myJsonUrl = "http://" + location.host + "/static/json/lovelive.json";
+
+      axios
+        .get(myJsonUrl)
+        .then(res => {
+          console.log(res);
+          this.blogData = res.data;
+        })
+        .fail(res => {
+          console.log(res);
+        });
     }
   },
-  mounted: function(){
-   this.setLoveLive();
+  mounted: function() {
+    this.setLoveLive();
   },
   watch: {}
 };
