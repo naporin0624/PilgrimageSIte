@@ -51,8 +51,8 @@ export default {
 .scroll {
   height: 84.7vh;
   overflow-y: scroll;
-  border-left: medium solid #d8d8d8;
-  border-right: medium solid #d8d8d8;
+  /* border-left: medium solid #d8d8d8;
+  border-right: medium solid #d8d8d8; */
 }
 .article:after {
   content: "";
@@ -77,11 +77,11 @@ export default {
 }
 .title {
   text-align: center;
-  border-top-left-radius: 10px;
+  /* border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-top: medium solid #d8d8d8;
   border-left: medium solid #d8d8d8;
-  border-right: medium solid #d8d8d8;
+  border-right: medium solid #d8d8d8; */
 }
 .title span {
   font-size: 170%;
@@ -89,11 +89,11 @@ export default {
 }
 .author {
   text-align: right;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom: medium solid #d8d8d8;
+  /* border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px; */
+  /* border-bottom: medium solid #d8d8d8;
   border-left: medium solid #d8d8d8;
-  border-right: medium solid #d8d8d8;
+  border-right: medium solid #d8d8d8; */
 }
 .author span {
   font-size: 120%;
